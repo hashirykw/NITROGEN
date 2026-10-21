@@ -88,7 +88,7 @@ html{scrollbar-color:var(--volt) var(--bg)}
 .btn svg{width:18px;height:18px;transition:transform .5s var(--e-out)}.btn:hover svg{transform:translateX(4px)}
 .btn--ghost{color:var(--ink)}
 .btn--ghost::before{background:transparent;box-shadow:none;outline:0;background-image:linear-gradient(var(--line2),var(--line2));-webkit-mask:none}
-.btn--ghost::before{background:color-mix(in oklab,var(--ink) 13%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.btn--ghost::before{background:color-mix(in oklab,var(--ink) 13%,transparent)}
 .btn--ghost::after{background:linear-gradient(105deg,transparent 30%,rgba(250,234,8,.35) 48%,transparent 62%);background-size:250% 100%;background-position:120% 0}
 .btn--ghost .edge{position:absolute;inset:0;z-index:-1;pointer-events:none}
 .btn--sm{--h:42px;padding:0 20px;font-size:13px}
@@ -153,7 +153,7 @@ html{scrollbar-color:var(--volt) var(--bg)}
 .pre{position:fixed;inset:0;z-index:100;background:#000;display:grid;place-items:center;overflow:hidden}
 .pre__vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.2) contrast(1.1)}
 .pre__mask{position:absolute;inset:0;background:#000;mix-blend-mode:multiply;display:grid;place-items:center}
-.pre__word{font:900 italic clamp(4.2rem,21vw,24rem)/.8 var(--f-d);font-stretch:68%;color:#fff;letter-spacing:-.01em;text-transform:uppercase;user-select:none}
+.pre__word{font:900 italic clamp(6rem,23vw,24rem)/.8 var(--f-d);font-stretch:68%;color:#fff;letter-spacing:-.01em;text-transform:uppercase;user-select:none}
 .pre__charge{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
 .pre__charge .pre__word{color:var(--volt);clip-path:inset(calc(100% - var(--p,0%)) 0 0 0);filter:drop-shadow(0 0 30px rgba(250,234,8,.55))}
 .pre__crest{position:absolute;left:0;right:0;height:2px;bottom:var(--p,0%);background:linear-gradient(90deg,transparent,var(--volt),#fff,var(--volt),transparent);box-shadow:0 0 24px var(--volt);opacity:.9}
@@ -184,7 +184,7 @@ html{scrollbar-color:var(--volt) var(--bg)}
 .hero__edge i{position:absolute;top:-2%;bottom:-2%;width:2px;background:var(--volt);box-shadow:0 0 18px var(--volt);transform-origin:top;transform:skewX(-9.1deg)}
 .hero__c{position:absolute;z-index:3;left:0;right:0;bottom:0;padding-bottom:clamp(92px,12vh,124px)}
 .hero__kick{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
-.tag{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 14px;border-radius:999px;background:rgba(10,10,10,.55);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);font:500 11px/1 var(--f-m);letter-spacing:.12em;text-transform:uppercase;color:#d6d5ce}
+.tag{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 14px;border-radius:999px;background:rgba(10,10,10,.72);border:1px solid rgba(255,255,255,.14);font:500 11px/1 var(--f-m);letter-spacing:.12em;text-transform:uppercase;color:#d6d5ce}
 .tag b{color:var(--volt);font-weight:600}
 .hero h1{color:#fff;text-shadow:0 10px 60px rgba(0,0,0,.5)}
 .hero h1 .v{color:var(--volt)!important;background:none!important;padding:0!important}
@@ -201,14 +201,14 @@ html{scrollbar-color:var(--volt) var(--bg)}
 @keyframes drip{to{top:110%}}
 @media (max-width:820px){
   .hero__panels{grid-template-columns:1fr}
-  .hero__p{margin:0;clip-path:none}.hero__p:not(:nth-child(2)){display:none}.hero__p:nth-child(2){clip-path:none}
+  .hero__panels{bottom:30%}.hero__p,.hero__p:first-child{margin:0;clip-path:none}.hero__p:not(:first-child){display:none}
   .hero__edge{display:none}.hero__stats{display:none}.hero__scroll{display:none}
-  .hero__p::after{background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.05) 30%,rgba(0,0,0,.85) 78%)}
+  .hero__p::after{background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,0) 22%,rgba(0,0,0,0) 62%,#000 100%)}
 }
 
 /* ---------- inner-page hero ---------- */
 .phero{position:relative;padding:170px 0 70px;overflow:hidden}
-.phero__bg{position:absolute;inset:0;z-index:0;opacity:.55}
+.phero__bg{position:absolute;inset:0;z-index:0;opacity:.3;filter:blur(2px) saturate(.9)}
 .phero__bg video,.phero__bg img{width:100%;height:100%;object-fit:cover}
 .phero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--bg) 0%,color-mix(in oklab,var(--bg) 55%,transparent) 40%,var(--bg) 100%)}
 .phero .wrap{position:relative;z-index:1}
@@ -218,7 +218,7 @@ html{scrollbar-color:var(--volt) var(--bg)}
 
 /* ---------- marquee ---------- */
 .marq{overflow:hidden;border-block:1px solid var(--line);background:var(--bg2);padding:18px 0;position:relative}
-.marq__t{display:flex;width:max-content;animation:marq 40s linear infinite}
+.marq__t{display:flex;width:max-content;animation:marq 40s linear infinite;will-change:transform}
 .marq span{font:900 italic clamp(1.8rem,4vw,3.4rem)/1 var(--f-d);font-stretch:72%;text-transform:uppercase;padding:0 .5em;white-space:nowrap;color:var(--ink)}
 .marq span.o{-webkit-text-stroke:1.2px var(--ink);color:transparent}
 .marq svg{width:.9em;height:.9em;align-self:center;flex:none;color:var(--volt)}
@@ -236,7 +236,7 @@ html{scrollbar-color:var(--volt) var(--bg)}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r2);overflow:hidden;position:relative}
 
 /* ---------- element 07 (atom) ---------- */
-.atom{position:relative;height:calc(100vh * 8);background:#050505;color:#f1f0ea}
+.atom{position:relative;height:calc(100vh * 6);background:#050505;color:#f1f0ea}
 .atom__sticky{position:sticky;top:0;height:100vh;overflow:hidden}
 .atom__stage{position:absolute;inset:0}
 .atom__stage canvas{width:100%!important;height:100%!important}
@@ -311,7 +311,7 @@ html{scrollbar-color:var(--volt) var(--bg)}
 .reel__t{position:absolute;z-index:2;left:16px;right:16px;bottom:16px;display:flex;justify-content:space-between;align-items:flex-end;gap:10px;text-align:left;color:#fff}
 .reel__t b{font:900 italic 24px/.95 var(--f-d);font-stretch:72%;text-transform:uppercase}
 .reel__t .mono{color:#cfcfc7;font-size:11px}
-.reel__play{position:absolute;z-index:2;top:14px;right:14px;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(10,10,10,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--volt);border:1px solid rgba(255,255,255,.15)}
+.reel__play{position:absolute;z-index:2;top:14px;right:14px;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(10,10,10,.6);color:var(--volt);border:1px solid rgba(255,255,255,.15)}
 .reel__play svg{width:16px;height:16px}
 .reel--w{width:clamp(300px,42vw,560px);aspect-ratio:16/9}
 .rail__nav{display:flex;gap:8px}
@@ -342,7 +342,7 @@ html{scrollbar-color:var(--volt) var(--bg)}
 .hon p{margin:0;color:#cfcec7;max-width:46ch}
 .hon__stack{display:grid;gap:18px}
 .hon__stack .hon{min-height:0}
-.hon button.hon__play{position:absolute;top:20px;right:20px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.2);color:var(--volt);backdrop-filter:blur(8px)}
+.hon button.hon__play{position:absolute;top:20px;right:20px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.2);color:var(--volt)}
 .hon button.hon__play svg{width:18px;height:18px}
 @media (max-width:860px){.honours{grid-template-columns:1fr}.hon{min-height:380px}.hon__stack .hon{min-height:300px}}
 
@@ -366,10 +366,10 @@ html{scrollbar-color:var(--volt) var(--bg)}
 .rv__score b{display:block;font:900 italic 64px/1 var(--f-d);font-stretch:72%;color:var(--ink);letter-spacing:0}
 .rv__score b em{font-style:inherit;color:var(--volt)}
 .stack{position:relative;height:380px}
-.stack__c{position:absolute;inset:0;padding:34px;border-radius:var(--r2);background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .7s var(--e-out),opacity .5s,filter .5s}
+.stack__c{position:absolute;inset:0;padding:34px;border-radius:var(--r2);background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .7s var(--e-out),opacity .5s}
 .stack__c[data-pos="0"]{z-index:3}
-.stack__c[data-pos="1"]{z-index:2;transform:translate(18px,-18px) scale(.96);opacity:.7;filter:blur(1px)}
-.stack__c[data-pos="2"]{z-index:1;transform:translate(36px,-36px) scale(.92);opacity:.4;filter:blur(2px)}
+.stack__c[data-pos="1"]{z-index:2;transform:translate(18px,-18px) scale(.96);opacity:.55}
+.stack__c[data-pos="2"]{z-index:1;transform:translate(36px,-36px) scale(.92);opacity:.28}
 .stack__c[data-pos="h"]{z-index:0;opacity:0;transform:translate(-40px,30px) scale(.9)}
 .stack__stars{color:var(--volt);letter-spacing:4px;font-size:18px}
 :root[data-theme="light"] .stack__stars{color:#c4a700}
@@ -687,6 +687,56 @@ html{scrollbar-color:var(--volt) var(--bg)}
 .hero .v,.atom .v,.mach .v,.foot .v,.hon .v,.coach .v,.pre .v{color:var(--volt)!important;background:none!important;padding:0!important}
 .atom .lab,.mach .lab{color:#a9a8a1}
 
+/* ---------- audit pass ---------- */
+.menu__tools{display:none;gap:8px;margin-top:8px}
+.menu__tools .tg,.menu__tools .snd{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--line);border-color:transparent}
+.menu__tools .tg{flex:1;justify-content:flex-start}
+@media (max-width:760px){
+  .dock{display:none}
+  .menu__tools{display:flex}
+  .hero__cta .btn--ghost{display:none}
+  .hero__kick .tag:nth-child(2){display:none}
+  .hero__sub{font-size:15.5px;max-width:34ch}
+  .hero h1{font-size:clamp(3.6rem,16vw,5rem)}
+  .offer{min-height:0;padding:26px}
+  .offer__price{margin-bottom:14px}
+  .atom__tile{display:none}
+  .atom h2{font-size:clamp(2.2rem,10vw,2.8rem)}
+  .atom__steps{margin-top:18px;min-height:200px}
+  .sec{padding:72px 0}
+  .sec__head{margin-bottom:28px;gap:18px}
+  .lede{font-size:1rem}
+  .stack{margin-right:28px;height:440px}
+  .stack__c{padding:26px}
+  .formx__vid{aspect-ratio:4/5}
+  .checks li{grid-template-columns:52px 1fr;padding:13px 0}
+  .checks li::before{font-size:38px}
+  .hon{min-height:440px}
+  .hon__stack .hon{min-height:320px}
+  .phero{padding:130px 0 50px}
+  .foot{padding:70px 0 100px}
+  .foot__big{margin-bottom:34px}
+  .reel{width:62vw}
+  .chat{height:calc(100dvh - 80px)}
+}
+/* myth front: a big numeral fills the empty space */
+.myth__f::after{content:attr(data-n);position:absolute;right:14px;bottom:-14px;font:900 italic 150px/1 var(--f-d);font-stretch:68%;color:transparent;-webkit-text-stroke:1.2px var(--line2);pointer-events:none}
+.myth__f{overflow:hidden}
+/* roster (team) */
+.roster{border-top:1px solid var(--line)}
+.ro{display:grid;grid-template-columns:72px 1fr auto;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);transition:padding .5s var(--e-out)}
+.ro:hover{padding-left:12px}
+.ro__n{font:900 italic 30px/1 var(--f-d);font-stretch:72%;color:var(--dim)}
+.ro:hover .ro__n{color:var(--volt-ink)}
+:root:not([data-theme="light"]) .ro:hover .ro__n{color:var(--volt)}
+.ro h3{margin:0;font:900 italic clamp(2rem,4.4vw,3.6rem)/.9 var(--f-d);font-stretch:72%;text-transform:uppercase}
+.ro p{margin:6px 0 0;color:var(--mute);max-width:58ch;font-size:15px}
+.ro__r{font:600 12px/1.4 var(--f-m);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);text-align:right;max-width:240px}
+.ro__r b{display:block;color:var(--ink)}
+.ro--y h3{color:var(--volt-ink)}
+:root:not([data-theme="light"]) .ro--y h3{color:var(--volt)}
+@media (max-width:700px){.ro{grid-template-columns:44px 1fr;gap:14px}.ro__r{grid-column:2;text-align:left;max-width:none}.ro__n{font-size:22px}}
+
 </style>
 </head>
 <body>
@@ -699,8 +749,9 @@ html{scrollbar-color:var(--volt) var(--bg)}
   <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
 </header>
 <nav class="menu" id="menu" aria-label="Pages">
-  <ul><li><a href="index.html" aria-current="page"><img src="hero-tour.webp" alt="" width="54" height="54" loading="lazy" decoding="async"><span><b>Home</b><small>Reels, Element 07, offers</small></span></a></li><li><a href="training.html"><img src="form-row.webp" alt="" width="54" height="54" loading="lazy" decoding="async"><span><b>Training</b><small>Form lab, guides, myths</small></span></a></li><li><a href="team.html"><img src="reel-coach.webp" alt="" width="54" height="54" loading="lazy" decoding="async"><span><b>Team</b><small>Coaches, athletes, PT</small></span></a></li><li><a href="membership.html"><img src="reel-bootcamp.webp" alt="" width="54" height="54" loading="lazy" decoding="async"><span><b>Membership</b><small>Packages, boot camp, enquire</small></span></a></li><li><a href="visit.html"><img src="tour-blockf.webp" alt="" width="54" height="54" loading="lazy" decoding="async"><span><b>Visit</b><small>Branches, timings, map</small></span></a></li></ul>
+  <ul><li><a href="index.html" aria-current="page"><img src="hero-tour.webp" alt="" width="54" height="54" loading="lazy" decoding="async"><span><b>Home</b><small>Reels, Element 07, offers</small></span></a></li><li><a href="training.html"><img src="form-row.webp" alt="" width="54" height="54" loading="lazy" decoding="async"><span><b>Training</b><small>Form lab, guides, myths</small></span></a></li><li><a href="team.html"><img src="reel-spot.webp" alt="" width="54" height="54" loading="lazy" decoding="async"><span><b>Team</b><small>Coaches, athletes, PT</small></span></a></li><li><a href="membership.html"><img src="reel-bootcamp.webp" alt="" width="54" height="54" loading="lazy" decoding="async"><span><b>Membership</b><small>Packages, boot camp, enquire</small></span></a></li><li><a href="visit.html"><img src="tour-blockf.webp" alt="" width="54" height="54" loading="lazy" decoding="async"><span><b>Visit</b><small>Branches, timings, map</small></span></a></li></ul>
   <div class="menu__cta"><a class="y" href="#" data-wa><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg> WhatsApp</a><a href="tel:+923700843151"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg> Call</a></div>
+  <div class="menu__tools"><button class="tg" type="button" data-theme-toggle><span class="tg__k"></span><span class="t">Dark</span></button><button class="snd" type="button" data-sound aria-pressed="false" aria-label="Sound effects"><span class="bars"><i></i><i></i><i></i><i></i></span></button></div>
 </nav>
 <div class="dock">
   <button class="tg" type="button" data-theme-toggle><span class="tg__k"></span><span class="t">Dark</span></button>
@@ -709,7 +760,7 @@ html{scrollbar-color:var(--volt) var(--bg)}
 <main id="main">
 
 <div class="pre" aria-hidden="true">
-  <video class="pre__vid" src="hero-action.mp4" muted playsinline autoplay loop preload="auto"></video>
+  <video class="pre__vid" src="hero-tour.mp4" muted playsinline autoplay loop preload="auto"></video>
   <div class="pre__mask"><span class="pre__word">Nitrogen</span></div>
   <div class="pre__charge"><span class="pre__word">Nitrogen</span><span class="pre__crest"></span></div>
   <svg class="pre__bolt" viewBox="0 0 1000 1000" preserveAspectRatio="none"><path d="M560 -20 L470 330 L560 350 L420 640 L520 660 L380 1020"/></svg>
@@ -720,8 +771,8 @@ html{scrollbar-color:var(--volt) var(--bg)}
 <section class="hero" aria-label="Nitrogen Fitness &amp; Wellness, Karachi">
   <div class="hero__panels">
     <div class="hero__p"><video src="hero-tour.mp4" poster="hero-tour.webp" muted playsinline autoplay loop preload="auto" aria-label="Walkthrough of the Block F floor"></video></div>
-    <div class="hero__p"><video src="hero-action.mp4" poster="hero-action.webp" muted playsinline autoplay loop preload="metadata" aria-label="Members training at Nitrogen"></video></div>
-    <div class="hero__p"><video src="hero-dark.mp4" poster="hero-dark.webp" muted playsinline autoplay loop preload="metadata" aria-label="The machine floor after dark"></video></div>
+    <div class="hero__p"><video data-desk="hero-action.mp4" poster="hero-action.webp" muted playsinline loop preload="none" aria-label="Members training at Nitrogen"></video></div>
+    <div class="hero__p"><video data-desk="hero-dark.mp4" poster="hero-dark.webp" muted playsinline loop preload="none" aria-label="The machine floor after dark"></video></div>
   </div>
   <div class="hero__edge" aria-hidden="true"><i style="left:calc(33.33% + 2.2%)"></i><i style="left:calc(66.66% + 2.2%)"></i></div>
   <div class="hero__stats" aria-label="Quick facts">
@@ -750,7 +801,7 @@ html{scrollbar-color:var(--volt) var(--bg)}
       <div class="atom__copy">
         <div class="atom__tile" aria-hidden="true"><b>N</b><em>Nitrogen</em><span>No. 07 · 14.007</span></div>
         <h2 class="d h2" id="el-h">Seven reasons<br>in <span class="v">one</span> element.</h2>
-        <div class="atom__steps" aria-live="polite"><div class="astep on" data-astep="0"><p class="astep__n"><i></i>Element 07</p><h3 class="d h3">Nitrogen.</h3><p>Atomic number seven. Two shells, seven electrons, one charged-up gym. Scroll and each electron lights up with something real about Nitrogen.</p></div><div class="astep" data-astep="1"><p class="astep__n"><i></i>Shell 1 · e⁻ 01</p><h3 class="d h3">Block F, North Nazimabad</h3><p>The flagship: black-and-gold floor, neon NITROGEN wall, turf lane and a boxing studio. Euro Hi-Tech Residency, opposite Northwalk, near Saifee Hospital.</p><a href="visit.html#block-f">Find Block F <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="astep" data-astep="2"><p class="astep__n"><i></i>Shell 1 · e⁻ 02</p><h3 class="d h3">Nazimabad No. 3</h3><p>The original branch by the Nazimabad Eid Gah ground — green neon, the giant N on the turf, and 103 Google reviews behind it.</p><a href="visit.html#nazimabad">Find Nazimabad <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="astep" data-astep="3"><p class="astep__n"><i></i>Shell 2 · e⁻ 03</p><h3 class="d h3">The strength floor</h3><p>Plate-loaded leg press, cable towers, lat pulldown and row stations, racks, benches and full dumbbell rows. Everything you need to train every muscle.</p><a href="training.html">Open the form lab <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="astep" data-astep="4"><p class="astep__n"><i></i>Shell 2 · e⁻ 04</p><h3 class="d h3">The cardio deck</h3><p>Treadmills, bikes and ellipticals lined up under the neon sign. Warm up before the iron, finish after it.</p></div><div class="astep" data-astep="5"><p class="astep__n"><i></i>Shell 2 · e⁻ 05</p><h3 class="d h3">Ladies-only classes</h3><p>Four coached slots a day: Farhana 11–12 and 3–4, Faiza 5–6, Ayesha 7–8. Women train on the main floor every day too.</p><a href="visit.html#ladies">See the slots <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="astep" data-astep="6"><p class="astep__n"><i></i>Shell 2 · e⁻ 06</p><h3 class="d h3">TRX & functional</h3><p>Farhana’s corner. “TRX isn’t just a tool, it’s freedom.” Functional movement for real life — adaptable for beginner or athlete.</p><a href="team.html">Meet Farhana <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="astep" data-astep="7"><p class="astep__n"><i></i>Shell 2 · e⁻ 07</p><h3 class="d h3">Boot camp & boxing</h3><p>OSM Fitness runs the Body Shred Boot Camp at Block F — 6 AM, 8 PM and 9 PM, couples welcome — plus heavy bags and HIIT circuits.</p><a href="membership.html#bootcamp">Join the boot camp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+        <div class="atom__steps" aria-live="polite"><div class="astep on" data-astep="0"><p class="astep__n"><i></i>Element 07</p><h3 class="d h3">Nitrogen.</h3><p>Atomic number seven: seven electrons circling one core. Keep scrolling — each one lights up with a part of the gym.</p></div><div class="astep" data-astep="1"><p class="astep__n"><i></i>Shell 1 · e⁻ 01</p><h3 class="d h3">Block F, North Nazimabad</h3><p>The flagship: black-and-gold floor, neon NITROGEN wall, turf lane and a boxing studio. Euro Hi-Tech Residency, opposite Northwalk, near Saifee Hospital.</p><a href="visit.html#block-f">Find Block F <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="astep" data-astep="2"><p class="astep__n"><i></i>Shell 1 · e⁻ 02</p><h3 class="d h3">Nazimabad No. 3</h3><p>The original branch by the Nazimabad Eid Gah ground — green neon, the giant N on the turf, and 103 Google reviews behind it.</p><a href="visit.html#nazimabad">Find Nazimabad <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="astep" data-astep="3"><p class="astep__n"><i></i>Shell 2 · e⁻ 03</p><h3 class="d h3">The strength floor</h3><p>Plate-loaded leg press, cable towers, lat pulldown and row stations, racks, benches and full dumbbell rows. Everything you need to train every muscle.</p><a href="training.html">Open the form lab <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="astep" data-astep="4"><p class="astep__n"><i></i>Shell 2 · e⁻ 04</p><h3 class="d h3">The cardio deck</h3><p>Treadmills, bikes and ellipticals lined up under the neon sign. Warm up before the iron, finish after it.</p></div><div class="astep" data-astep="5"><p class="astep__n"><i></i>Shell 2 · e⁻ 05</p><h3 class="d h3">Ladies-only classes</h3><p>Four coached slots a day: Farhana 11–12 and 3–4, Faiza 5–6, Ayesha 7–8. Women train on the main floor every day too.</p><a href="visit.html#ladies">See the slots <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="astep" data-astep="6"><p class="astep__n"><i></i>Shell 2 · e⁻ 06</p><h3 class="d h3">TRX & functional</h3><p>Farhana’s corner. “TRX isn’t just a tool, it’s freedom.” Functional movement for real life — adaptable for beginner or athlete.</p><a href="team.html">Meet Farhana <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="astep" data-astep="7"><p class="astep__n"><i></i>Shell 2 · e⁻ 07</p><h3 class="d h3">Boot camp & boxing</h3><p>OSM Fitness runs the Body Shred Boot Camp at Block F — 6 AM, 8 PM and 9 PM, couples welcome — plus heavy bags and HIIT circuits.</p><a href="membership.html#bootcamp">Join the boot camp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
       </div>
     </div>
     <div class="atom__dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -761,7 +812,7 @@ html{scrollbar-color:var(--volt) var(--bg)}
 <section class="sec" aria-labelledby="of-h">
   <div class="wrap">
     <div class="sec__head">
-      <div><p class="lab">Packages · from their latest posts</p><h2 class="d h2 rise" id="of-h"><span class="mask"><span>Charged-up</span></span><span class="mask"><span><span class="v">prices.</span></span></span></h2></div>
+      <div><p class="lab">Packages · current offers</p><h2 class="d h2 rise" id="of-h"><span class="mask"><span>Pick a plan.</span></span><span class="mask"><span>Start <span class="v">this week.</span></span></span></h2></div>
       <p class="lede" data-fade>Two offers on the board right now. Message the desk to lock one in — rates can change, so we confirm on WhatsApp before you pay.</p>
     </div>
     <div class="offers">
@@ -777,7 +828,7 @@ html{scrollbar-color:var(--volt) var(--bg)}
     <div><p class="lab">From the floor · real reels</p><h2 class="d h2 rise" id="rl-h"><span class="mask"><span>Life at <span class="v">Nitrogen.</span></span></span></h2></div>
     <div class="rail__nav"><button class="rnav" type="button" data-rail="rail-home" data-dir="-1" aria-label="Scroll reels back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button class="rnav" type="button" data-rail="rail-home" data-dir="1" aria-label="Scroll reels forward"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
   </div>
-  <div class="rail" id="rail-home"><button class="reel" type="button" data-lb="reels" data-src="reel-nfloor.mp4" data-poster="reel-nfloor.webp" data-cap="Squats on the N — Nazimabad" data-hover-video aria-label="Play: The big N"><img src="reel-nfloor.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-nfloor.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>The big N</b><span class="mono">0:16</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-women.mp4" data-poster="reel-women.webp" data-cap="Not giving up" data-hover-video aria-label="Play: Not giving up"><img src="reel-women.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-women.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Not giving up</b><span class="mono">0:14</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-coach.mp4" data-poster="reel-coach.webp" data-cap="Coach on the floor" data-hover-video aria-label="Play: Coach on the floor"><img src="reel-coach.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-coach.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Coach on the floor</b><span class="mono">0:24</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-universe.mp4" data-poster="reel-universe.webp" data-cap="Representing Pakistan — Mr. Universe 2026, Bangkok" data-hover-video aria-label="Play: Mr. Universe 2026"><img src="reel-universe.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-universe.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Mr. Universe 2026</b><span class="mono">0:40</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-spot.mp4" data-poster="reel-spot.webp" data-cap="Spotted, every rep" data-hover-video aria-label="Play: Spotted, every rep"><img src="reel-spot.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-spot.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Spotted, every rep</b><span class="mono">0:20</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-support.mp4" data-poster="reel-support.webp" data-cap="Strong girls club" data-hover-video aria-label="Play: Strong girls club"><img src="reel-support.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-support.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Strong girls club</b><span class="mono">0:15</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-nasir.mp4" data-poster="reel-nasir.webp" data-cap="Nasir Khan — posing practice" data-hover-video aria-label="Play: Posing practice"><img src="reel-nasir.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-nasir.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Posing practice</b><span class="mono">0:24</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-boxing.mp4" data-poster="reel-boxing.webp" data-cap="OSM Fitness boot camp — boxing" data-hover-video aria-label="Play: Boxing day"><img src="reel-boxing.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-boxing.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Boxing day</b><span class="mono">0:20</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-physique.mp4" data-poster="reel-physique.webp" data-cap="Ignore the face" data-hover-video aria-label="Play: Ignore the face"><img src="reel-physique.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-physique.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Ignore the face</b><span class="mono">0:14</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-cafe.mp4" data-poster="reel-cafe.webp" data-cap="Abhi se thak gaye?" data-hover-video aria-label="Play: Abhi se thak gaye?"><img src="reel-cafe.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-cafe.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Abhi se thak gaye?</b><span class="mono">0:15</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-ego.mp4" data-poster="reel-ego.webp" data-cap="Drop the ego" data-hover-video aria-label="Play: Drop the ego"><img src="reel-ego.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-ego.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Drop the ego</b><span class="mono">0:14</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-racks.mp4" data-poster="reel-racks.webp" data-cap="The racks" data-hover-video aria-label="Play: The racks"><img src="reel-racks.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-racks.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>The racks</b><span class="mono">0:10</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-fitroot.mp4" data-poster="reel-fitroot.webp" data-cap="Nitrogen × Fit Root" data-hover-video aria-label="Play: Nitrogen × Fit Root"><img src="reel-fitroot.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-fitroot.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Nitrogen × Fit Root</b><span class="mono">0:18</span></span></button></div>
+  <div class="rail" id="rail-home"><button class="reel" type="button" data-lb="reels" data-src="reel-nfloor.mp4" data-poster="reel-nfloor.webp" data-cap="Squats on the N — Nazimabad" data-hover-video aria-label="Play: The big N"><img src="reel-nfloor.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-nfloor.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>The big N</b><span class="mono">0:16</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-spot.mp4" data-poster="reel-spot.webp" data-cap="Spotted, every rep" data-hover-video aria-label="Play: Spotted, every rep"><img src="reel-spot.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-spot.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Spotted, every rep</b><span class="mono">0:20</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-universe.mp4" data-poster="reel-universe.webp" data-cap="Representing Pakistan — Mr. Universe 2026, Bangkok" data-hover-video aria-label="Play: Mr. Universe 2026"><img src="reel-universe.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-universe.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Mr. Universe 2026</b><span class="mono">0:40</span></span></button><button class="reel" type="button" data-lb="reels" data-src="form-legs.mp4" data-poster="form-legs.webp" data-cap="Dumbbell leg workout" data-hover-video aria-label="Play: Leg day"><img src="form-legs.webp" alt="" loading="lazy" decoding="async"><video data-src="form-legs.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Leg day</b><span class="mono">0:20</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-boxing.mp4" data-poster="reel-boxing.webp" data-cap="OSM Fitness boot camp — boxing" data-hover-video aria-label="Play: Boxing at Block F"><img src="reel-boxing.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-boxing.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Boxing at Block F</b><span class="mono">0:20</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-nasir.mp4" data-poster="reel-nasir.webp" data-cap="Nasir Khan — posing practice" data-hover-video aria-label="Play: Posing practice"><img src="reel-nasir.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-nasir.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Posing practice</b><span class="mono">0:24</span></span></button><button class="reel" type="button" data-lb="reels" data-src="form-arms.mp4" data-poster="form-arms.webp" data-cap="Spider, hammer, preacher and incline curls" data-hover-video aria-label="Play: Arm day"><img src="form-arms.webp" alt="" loading="lazy" decoding="async"><video data-src="form-arms.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Arm day</b><span class="mono">0:21</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-racks.mp4" data-poster="reel-racks.webp" data-cap="The racks" data-hover-video aria-label="Play: The racks"><img src="reel-racks.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-racks.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>The racks</b><span class="mono">0:10</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-bootcamp.mp4" data-poster="reel-bootcamp.webp" data-cap="Body Shred Boot Camp at Block F" data-hover-video aria-label="Play: Boot camp"><img src="reel-bootcamp.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-bootcamp.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Boot camp</b><span class="mono">0:20</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-podium.mp4" data-poster="reel-podium.webp" data-cap="Representing Pakistan — Mr. Universe 2026" data-hover-video aria-label="Play: For Pakistan"><img src="reel-podium.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-podium.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>For Pakistan</b><span class="mono">0:20</span></span></button><button class="reel" type="button" data-lb="reels" data-src="reel-fitroot.mp4" data-poster="reel-fitroot.webp" data-cap="Nitrogen × Fit Root" data-hover-video aria-label="Play: Nitrogen × Fit Root"><img src="reel-fitroot.webp" alt="" loading="lazy" decoding="async"><video data-src="reel-fitroot.mp4" preload="none" muted playsinline loop aria-hidden="true"></video><span class="reel__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.3-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z"/></svg></span><span class="reel__t"><b>Nitrogen × Fit Root</b><span class="mono">0:18</span></span></button></div>
 </section>
 
 <section class="sec" aria-labelledby="hn-h">
@@ -833,7 +884,7 @@ html{scrollbar-color:var(--volt) var(--bg)}
 <section class="sec" style="padding-top:0" aria-labelledby="go-h">
   <div class="wrap" style="text-align:center">
     <p class="lab" style="justify-content:center">Your first session</p>
-    <h2 class="d h1 rise" id="go-h" style="font-size:clamp(3.4rem,10vw,9rem)"><span class="mask"><span>Stop scrolling.</span></span><span class="mask"><span><span class="v">Start lifting.</span></span></span></h2>
+    <h2 class="d h1 rise" id="go-h" style="font-size:clamp(3.4rem,10vw,9rem)"><span class="mask"><span>See the floor</span></span><span class="mask"><span>for <span class="v">yourself.</span></span></span></h2>
     <div class="hero__cta" style="justify-content:center;margin-top:34px" data-fade><a class="btn" href="#" data-wa><span>WhatsApp the desk</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost" href="tel:+923700843151"><span>Call 0370 084 3151</span></a></div>
   </div>
 </section>
@@ -859,7 +910,6 @@ html{scrollbar-color:var(--volt) var(--bg)}
   <div class="chat__q"><button type="button">Timings</button><button type="button" data-q="fees">Fees</button><button type="button" data-q="ladies">Ladies classes</button><button type="button" data-q="location">Location</button><button type="button" data-q="boot camp">Boot camp</button></div>
   <form class="chat__f"><input type="text" placeholder="Ask anything… (timing, fees kitni?)" aria-label="Your question" autocomplete="off"><button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
 </section>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 <script>
@@ -912,12 +962,12 @@ paintStatus(); setInterval(paintStatus, 60000);
 
 /* ---------- theme ---------- */
 const root = document.documentElement;
-const themeBtn = $('[data-theme-toggle]');
+const themeBtns = $$('[data-theme-toggle]');
 const curTheme = () => root.dataset.theme || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
 const icons = { dark: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>', light: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M1.5 12H4M20 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>' };
-function paintTheme() { if (!themeBtn) return; const t = curTheme(); themeBtn.querySelector('.tg__k').innerHTML = icons[t]; themeBtn.querySelector('.t').textContent = t === 'dark' ? 'Dark' : 'Light'; themeBtn.setAttribute('aria-label', 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' theme'); const m = $('meta[name="theme-color"]'); if (m) m.content = t === 'dark' ? '#070707' : '#f3f1e9'; }
+function paintTheme() { const t = curTheme(); themeBtns.forEach(b => { b.querySelector('.tg__k').innerHTML = icons[t]; b.querySelector('.t').textContent = t === 'dark' ? 'Dark' : 'Light'; b.setAttribute('aria-label', 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' theme'); }); const m = $('meta[name="theme-color"]'); if (m) m.content = t === 'dark' ? '#070707' : '#f3f1e9'; }
 paintTheme();
-themeBtn && themeBtn.addEventListener('click', (e) => {
+themeBtns.forEach(themeBtn => themeBtn.addEventListener('click', (e) => {
   const next = curTheme() === 'dark' ? 'light' : 'dark';
   const go = () => { root.dataset.theme = next; store.set('ng-theme', next); paintTheme(); };
   SFX.play('flip');
@@ -926,7 +976,7 @@ themeBtn && themeBtn.addEventListener('click', (e) => {
     const vt = document.startViewTransition(go);
     vt.ready.then(() => document.documentElement.animate({ clipPath: [`circle(0 at ${x}px ${y}px)`, `circle(${rad}px at ${x}px ${y}px)`] }, { duration: 700, easing: 'cubic-bezier(.16,1,.3,1)', pseudoElement: '::view-transition-new(root)' })).catch(() => {});
   } else go();
-});
+}));
 
 /* ---------- sound (Web Audio, off by default) ---------- */
 const SFX = window.SFX = (() => {
@@ -938,8 +988,8 @@ const SFX = window.SFX = (() => {
     zap: () => { noise(.35, .08, 900); tone(90, .4, 'sawtooth', .05, 40); }, charge: (p) => tone(200 + p * 700, .05, 'triangle', .012), msg: () => { tone(980, .06, 'sine', .03); setTimeout(() => tone(1320, .08, 'sine', .025), 70); } };
   return { get on() { return on; }, set(v) { on = v; store.set('ng-sound', v ? '1' : '0'); if (v) { ensure(); lib.open(); } }, play(n, a) { if (on && lib[n]) lib[n](a); } };
 })();
-const sndBtn = $('[data-sound]');
-if (sndBtn) { sndBtn.setAttribute('aria-pressed', String(SFX.on)); sndBtn.addEventListener('click', () => { SFX.set(!SFX.on); sndBtn.setAttribute('aria-pressed', String(SFX.on)); }); }
+const sndBtns = $$('[data-sound]');
+sndBtns.forEach(b => { b.setAttribute('aria-pressed', String(SFX.on)); b.addEventListener('click', () => { SFX.set(!SFX.on); sndBtns.forEach(x => x.setAttribute('aria-pressed', String(SFX.on))); }); });
 if (!TOUCH) document.addEventListener('pointerover', e => { const t = e.target.closest('a,button,.chip,label'); if (t && !t.contains(e.relatedTarget)) SFX.play('hover'); });
 document.addEventListener('click', e => { if (e.target.closest('a,button') && !e.target.closest('[data-sound],[data-theme-toggle]')) SFX.play('tick'); });
 
@@ -953,7 +1003,7 @@ NG.ready = new Promise(res => {
   const vid = $('.pre__vid', pre); vid && vid.play && vid.play().catch(() => {});
   const ch = $('.pre__charge', pre), crest = $('.pre__crest', pre), num = $('.pre__num', pre);
   const hero = $('.hero video'); if (hero) hero.preload = 'auto';
-  const t0 = performance.now(), DUR = 2600; let last = -1;
+  const t0 = performance.now(), DUR = 1900; let last = -1;
   const step = (t) => { const p = Math.min(1, (t - t0) / DUR), e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2, pc = Math.round(e * 100);
     ch.style.setProperty('--p', pc + '%'); crest.style.setProperty('--p', (e * 100) + '%'); num.textContent = String(pc).padStart(3, '0');
     if (pc !== last && pc % 7 === 0) SFX.play('charge', e); last = pc;
@@ -1011,14 +1061,24 @@ $$('[data-wa]').forEach(a => { a.href = NG.waLink(a.dataset.wa || 'Hi Nitrogen! 
 
 /* ---------- hover-play videos (reels, exercise cards) ---------- */
 const loadVid = v => { if (v.dataset.src && !v.src) { v.src = v.dataset.src; v.load(); } };
+/* on touch screens only the single most-visible card plays — keeps phones smooth */
+const ratios = new Map(); let active = null;
+const touchIO = new IntersectionObserver(es => { es.forEach(en => ratios.set(en.target, en.intersectionRatio));
+  let best = null, br = .75; ratios.forEach((r, c) => { if (r > br) { br = r; best = c; } });
+  if (best !== active) { active && active._stop(); active = best; active && active._play(); } }, { threshold: [0, .25, .5, .75, .9, 1] });
 $$('[data-hover-video]').forEach(card => { const v = $('video', card); if (!v) return;
   const play = () => { loadVid(v); v.muted = true; v.loop = true; v.play().then(() => card.classList.add('playing')).catch(() => {}); };
   const stop = () => { card.classList.remove('playing'); v.pause(); };
+  card._play = play; card._stop = stop;
   if (!TOUCH) { card.addEventListener('pointerenter', play); card.addEventListener('pointerleave', stop); }
-  else { const o = new IntersectionObserver(es => es.forEach(en => en.intersectionRatio > .7 ? play() : stop()), { threshold: [0, .7, 1] }); o.observe(card); } });
+  else touchIO.observe(card); });
+/* big background videos load only on wide screens; phones keep the poster */
+const WIDE = matchMedia('(min-width: 821px)').matches;
+$$('video[data-desk]').forEach(v => { if (WIDE && !RM) { v.src = v.dataset.desk; v.play().catch(() => {}); } });
 /* autoplay-in-view videos */
 const vio = new IntersectionObserver(es => es.forEach(en => { const v = en.target; if (en.isIntersecting) { loadVid(v); v.play().catch(() => {}); } else v.pause(); }), { rootMargin: '120px' });
 $$('video[data-inview]').forEach(v => vio.observe(v));
+$$('video[data-desk]').forEach(v => { if (v.src) vio.observe(v); });
 
 /* ---------- rails: drag + arrows ---------- */
 $$('.rail').forEach(r => { let down = false, sx = 0, sl = 0, moved = 0;
@@ -1109,7 +1169,7 @@ if (host) try { mount(); } catch (e) { console.warn(e); }
 function mount(){
   const MOBILE = matchMedia('(max-width: 860px)').matches, RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, MOBILE ? 1.5 : 1.75)); renderer.setClearColor(0x050505, 1);
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, MOBILE ? 1.5 : 1.5)); renderer.setClearColor(0x050505, 1);
   renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05; renderer.outputColorSpace = THREE.SRGBColorSpace;
   host.prepend(renderer.domElement); renderer.domElement.setAttribute('aria-hidden', 'true'); const fb = host.querySelector('.atom__fallback'); fb && fb.remove();
   const scene = new THREE.Scene(); scene.fog = new THREE.FogExp2(0x050505, .045);
@@ -1155,7 +1215,7 @@ function mount(){
   const dust = new THREE.Points(dg, new THREE.PointsMaterial({ color: 0xbdb48a, size: .03, transparent: true, opacity: .55, depthWrite: false })); scene.add(dust);
 
   let composer = null, bloom = null;
-  if (!MOBILE) { composer = new EffectComposer(renderer); composer.addPass(new RenderPass(scene, camera)); bloom = new UnrealBloomPass(new THREE.Vector2(1, 1), .55, .5, .5); composer.addPass(bloom); composer.addPass(new OutputPass()); }
+  if (!MOBILE) { composer = new EffectComposer(renderer); composer.setPixelRatio(1); composer.addPass(new RenderPass(scene, camera)); bloom = new UnrealBloomPass(new THREE.Vector2(1, 1), .55, .5, .5); composer.addPass(bloom); composer.addPass(new OutputPass()); }
 
   const size = () => { const w = host.clientWidth, h = host.clientHeight; if (!w || !h) return; renderer.setSize(w, h, false); composer && composer.setSize(w, h); camera.aspect = w / h;
     if (w > 860) camera.setViewOffset(w * 1.45, h, w * .02, 0, w, h); else camera.setViewOffset(w, h * 1.5, 0, h * .4, w, h); camera.updateProjectionMatrix(); };
